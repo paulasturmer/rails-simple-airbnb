@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <col-4 class="col-md-6">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1556955112-28cde3817b0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Card image cap">     
+        <h1><%= @flat.name %></h1>
+        <p>Adress: <%= @flat.address %></p>
+        <p>Description: <%= @flat.description %></p>
+        <p>Price/night: R$<%= @flat.price_per_night %></p>
+        <p>Nº of guests: <%= @flat.number_of_guests %></p>
+    </col-4>
+  </div>
+  <button type="button" class="btn btn-light"><%= link_to "Edit", edit_flat_path(@flat) %></button>
+  <button type="button" class="btn btn-light"><%= link_to "Delete", flat_path(@flat), method: :delete, data: {confirm: "Are you sure?"} %></button>
+  <button type="button" class="btn btn-light"><%= link_to 'Back', flats_path %></button>
+</div>

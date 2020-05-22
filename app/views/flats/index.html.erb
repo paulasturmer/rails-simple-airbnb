@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Flats</h1>
+    <button type="button" class="btn btn-light"><%= link_to 'Add New Flat', new_flat_path %></button>
+
+    <div class="row justify-content-center">            
+            <% @flats.each do |flat| %>
+                <div class="card m-3" style="width: 18rem;">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556955112-28cde3817b0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= flat.name %></h5>
+                        <p class="card-text"><%= flat.description %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Address: <%= flat.address %></li>
+                        <li class="list-group-item">Price/night: R$<%= flat.price_per_night %></li>
+                        <li class="list-group-item">N° of guests: <%= flat.number_of_guests %></li>
+                        <li class="list-group-item">
+                            <button type="button" class="btn btn-light"><%= link_to "Edit", edit_flat_path(flat) %></button>
+                            <button type="button" class="btn btn-light"><%= link_to "Delete", flat_path(flat), method: :delete, data: {confirm: "Are you sure?"} %></button>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-light"><%= link_to 'More info', flat_path(flat) %></button>
+                    </div>
+                </div>
+            <% end %>
+    </div>
+</div>
